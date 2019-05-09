@@ -128,6 +128,9 @@ int main() {
   printf("Name : %s\n", dogBuffer.name);
   printf("Age : %d\n", dogBuffer.age);
 
+  strcpy(dogBuffer.name, "Luis Miguel");
+  send(fd, &dogBuffer, sizeof(struct Dog), 0);
+
   // close:
   //apaga un socket y libera los recursos asignados a ese socket.
   close(fd);

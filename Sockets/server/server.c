@@ -184,6 +184,29 @@ int main() {
 
   send(fd1, &message, sizeof(struct Dog), 0);
 
+
+  //ssize_t recv(int sockfd, void *buf, size_t len, int flags);
+
+  // sockfd:
+  // identificador fd del socket que va a enlazar
+
+  // buffer:
+  // Apunta al buffer que contiene el mensaje a recibir.
+
+  // length:
+  // Especifica la longitud del mensaje (buffer) en bytes.
+
+  // flags:
+  // El parámetro flags se establece especificando uno o más de los siguientes flags.
+  // Si se especifica más de una bandera, se debe usar el operador lógico OR (|) para separarlos.
+  // El indicador MSG_CONNTERM se excluye mutuamente con otros indicadores.
+
+  // MSG_CONNTERM, MSG_OOB, MSG_PEEK, MSG_WAITALL
+  recv(fd1, &message, sizeof(struct Dog), 0);
+
+  printf("Name : %s\n", message.name);
+  printf("Age : %d\n", message.age);
+
   // close:
   //apaga un socket y libera los recursos asignados a ese socket.
 
