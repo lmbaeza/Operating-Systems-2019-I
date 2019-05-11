@@ -20,6 +20,17 @@ Una canalización con nombre (también conocida como FIFO ) es uno de los métod
 #include <sys/stat.h>
 
 int mkfifo(const char *pathname, mode_t mode);
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int open(const char *pathname, int flags);
+
+Flags:
+
+O_RDONLY: Abrir el Fichero modo lectura (read)
+O_WRONLY: Abrir el fichero modo escritura (write)
 ```
 
 
