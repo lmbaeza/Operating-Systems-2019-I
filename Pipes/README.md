@@ -31,6 +31,8 @@ Flags:
 
 O_RDONLY: Abrir el Fichero modo lectura (read)
 O_WRONLY: Abrir el fichero modo escritura (write)
+O_RDWR: Abrir el fichero modo lectura / escritura (read, write)
+O_APPEND: Agrega al final del Archivo
 ```
 
 
