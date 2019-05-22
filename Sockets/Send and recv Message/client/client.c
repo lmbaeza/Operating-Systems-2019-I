@@ -23,129 +23,144 @@
 
 void signal_callback_handler(int);
 
+// Define el codigo de los errores
+#define ERROR -1
+
+// Define la longitud máxima para la cola de conexiones pendientes.
+#define BACKLOG 32
+
+// Puerto en el que se va a hacer la comunicación
+#define PORT 8080
+
+// Estructura que define el cliente y el servidor
+// http://es.tldp.org/Tutoriales/PROG-SOCKETS/prog-sockets.html
 struct sockaddr_in server; 
 struct sockaddr_in client; 
 
-// Puerto en el que se va a hacer la comunicación
-#define PORT 3538
 
-size_t tama, tamaClient;
+// Trama es un paquete de datos que se envia a traves de la red
+// En este caso estas variables indican la longitud en bytes de la trama enviada
+socklen_t tramaServer;
 
-int r, fd, fd1;
-
-// Estructura que representa el buffer que se va a recibir
-struct Dog {
-  char name[32];
-  int age;
-} dogBuffer ;
+int err,      // Guarda el Codigo del error
+    fdSocket; // File Descriptor del Socket
 
 int main() {
 
-  // int socket(int domain, int type, int protocol);
+    // int socket(int domain, int type, int protocol);
 
-  // AF_INET:
-  // IPv4 Protocolo de Internet
+    // AF_INET:
+    // IPv4 Protocolo de Internet
 
-  // SOCK_STREAM: 
-  // proporciona flujos de bytes secuenciales, confiables, bidireccionales y basados en conexión.
-  // Y el mecanismo de transmisión de datos fuera de banda puede ser compatible.
+    // SOCK_STREAM: 
+    // proporciona flujos de bytes secuenciales, confiables, bidireccionales y basados en conexión.
+    // Y el mecanismo de transmisión de datos fuera de banda puede ser compatible.
 
-  fd = socket(AF_INET, SOCK_STREAM, 0);
+    fdSocket = socket(AF_INET, SOCK_STREAM, 0);
 
-  int option = 1;
+    if(fdSocket == ERROR) {
+        perror("ERROR CLIENT: socket(...)\n");
+        exit(ERROR);
+    }
 
-  // int setsockopt(int sockfd, int level, int optname, const void *optval, socklen_t optlen);
-  // sockfd:
-  // Identificador del socket
+    int option = 1;
 
-  setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
+    // int setsockopt(int sockfd, int level, int optname, const void *optval, socklen_t optlen);
+    // sockfd:
+    // Identificador del socket
 
-  if(fd < 0) {
-    perror("ERROR : socket");
-    exit(-1);
-  }
+    setsockopt(fdSocket, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
 
-  // Protocolo para la conexión  
-  server.sin_family = AF_INET;
 
-  // Puerto para la conexión
-  server.sin_port = htons(PORT);
+    // Protocolo para la conexión  
+    server.sin_family = AF_INET;
 
-  // Estructura a la dirección IP
-  server.sin_addr.s_addr = inet_addr("127.0.0.1");
+    // Puerto para la conexión
+    server.sin_port = htons(PORT);
 
-  // Relleno
-  bzero(server.sin_zero, 8);
+    // Estructura a la dirección IP
+    server.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-  //int connect(int socket, struct sockaddr *address, int address_len);
+    // Relleno
+    bzero(server.sin_zero, 8);
 
-  // socket:
-  // identificador fd del socket que va a enlazar
+    //int connect(int socket, struct sockaddr *address, int address_len);
 
-  // socekt:
-  // El puntero a una estructura de dirección de socket que contiene
-  // la dirección del socket al que se intentará una conexión.
+    // socket:
+    // identificador fd del socket que va a enlazar
 
-  // address_len:
-  // El tamaño de la dirección de socket señalada por la dirección en bytes.
+    // socekt:
+    // El puntero a una estructura de dirección de socket que contiene
+    // la dirección del socket al que se intentará una conexión.
 
-  tama = sizeof(struct sockaddr);
-  r = connect(fd, (struct sockaddr *)&server, tama);
+    // address_len:
+    // El tamaño de la dirección de socket señalada por la dirección en bytes.
 
-  if(r == -1) {
-    perror("ERROR: ");
-  }
-  
-  //void (*signal(int sig, void (*func)(int)))(int);
+    tramaServer = sizeof(struct sockaddr);
+    err = connect(fdSocket, (struct sockaddr *)&server, tramaServer);
 
-  //sig:
-  //Codigo SIG
+    if(err == ERROR) {
+        perror("ERROR CLIENT: connect(...)\n");
+        exit(ERROR);
+    }
+    
+    //void (*signal(int sig, void (*func)(int)))(int);
 
-  //func:
-  //Funcion que se ejecuta
-  signal(SIGINT, signal_callback_handler);
+    //sig:
+    //Codigo SIG
 
-  //ssize_t recv(int sockfd, void *buf, size_t len, int flags);
+    //func:
+    //Funcion que se ejecuta
+    signal(SIGINT, signal_callback_handler);
 
-  // sockfd:
-  // identificador fd del socket que va a enlazar
+    //ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
-  // buffer:
-  // Apunta al buffer que contiene el mensaje a recibir.
+    // sockfd:
+    // identificador fd del socket que va a enlazar
 
-  // length:
-  // Especifica la longitud del mensaje (buffer) en bytes.
+    // buffer:
+    // Apunta al buffer que contiene el mensaje a recibir.
 
-  // flags:
-  // El parámetro flags se establece especificando uno o más de los siguientes flags.
-  // Si se especifica más de una bandera, se debe usar el operador lógico OR (|) para separarlos.
-  // El indicador MSG_CONNTERM se excluye mutuamente con otros indicadores.
+    // length:
+    // Especifica la longitud del mensaje (buffer) en bytes.
 
-  // MSG_CONNTERM, MSG_OOB, MSG_PEEK, MSG_WAITALL
+    // flags:
+    // El parámetro flags se establece especificando uno o más de los siguientes flags.
+    // Si se especifica más de una bandera, se debe usar el operador lógico OR (|) para separarlos.
+    // El indicador MSG_CONNTERM se excluye mutuamente con otros indicadores.
 
-  r = recv(fd, &dogBuffer, sizeof(struct Dog), 0);
-  
-  printf("Name : %s\n", dogBuffer.name);
-  printf("Age : %d\n", dogBuffer.age);
+    // MSG_CONNTERM, MSG_OOB, MSG_PEEK, MSG_WAITALL
 
-  strcpy(dogBuffer.name, "Luis Miguel");
-  send(fd, &dogBuffer, sizeof(struct Dog), 0);
+    char * receiver = (char *) malloc(sizeof(char) * 120);
 
-  // close:
-  //apaga un socket y libera los recursos asignados a ese socket.
-  close(fd);
-  
-  return 0;
+    err = recv(fdSocket, receiver, sizeof(char) * 120, 0);
+    
+    printf("Message : %s\n", receiver);
+
+    char * message = (char *) malloc(sizeof(char) * 120);
+
+    strcpy(message, "Luis Miguel");
+    send(fdSocket, message, sizeof(char) * 120, 0);
+
+    // Liberar la memoria dinamica
+    free(receiver);
+    free(message);
+
+    // close:
+    //apaga un socket y libera los recursos asignados a ese socket.
+    close(fdSocket);
+    
+    return 0;
 }
 
 void signal_callback_handler(int signum) {
-  // Esta funcion se ejecuta si hay un Ctrl C
-  printf("Callback client : %d", signum);
-  close(fd);
+    // Esta funcion se ejecuta si hay un Ctrl C
+    printf("Callback client : %d", signum);
+    close(fdSocket);
+    // SIGNAL
+    // Ctrl C  == SIGINT
+    // Ctrl \  == SIGQUIT
+    // Ctrl Z  == SIGTSTP
 }
 
 
-// SIGNAL
-// Ctrl C  == SIGINT
-// Ctrl \  == SIGQUIT
-// Ctrl Z  == SIGTSTP
