@@ -1,17 +1,38 @@
 # Scheduling en Sistemas Operativos
 
-### Contenido
-
 ### Tabla de Procesos
 <img alt="Tabla de Procesos" src="https://i.ibb.co/NjHyr60/Scheduling-Table.png" width="500">
 
 ### Algoritmo FCFS (first-come-first-served)
 
-<img alt="Tabla de Procesos" src="https://i.ibb.co/dK4LXfx/First-Come-First-Served-FCFS.png" width="900">
+<img alt="Algoritmo FCFS (first-come-first-served)" src="https://i.ibb.co/dK4LXfx/First-Come-First-Served-FCFS.png" width="850">
+
+### Algoritmo Round Robin
 
 
+<img alt="Algoritmo Round Robin" src="https://i.ibb.co/PmRWVM6/Round-Robin.png" width="850">
 
+<img alt="Algoritmo Round Robin Q4" src="https://i.ibb.co/J57Tqpt/Round-Robin-Q4.png" width="850">
 
+### Algoritmo "primero el proceso más corto" - Shortest Process Next (SPN)
+
+<img alt="Algoritmo 'primero el proceso más corto' - Shortest Process Next - (SPN)" src="https://i.ibb.co/b1TDdGC/Shortest-Process-Next-SPN.png" width="850">
+
+### Algoritmo de menor tiempo restante - Shortest Remaining Time (SRT)
+
+<img alt="Algoritmo de menor tiempo restante - Shortest Remaining Time (SRT)" src="https://i.ibb.co/D8F4cCP/Shortest-Remaining-Time-SRT.png" width="850">
+
+### Algoritmo "primero el de mayor tasa de respuesta" - Highest Response Ratio Next (HRRN)
+
+<img alt="Algoritmo 'primero el de mayor tasa de respuesta' - Highest Response Ratio Next (HRRN)" src="https://i.ibb.co/q0gy01F/Highest-Response-Ratio-Next-HRRN.png" width="850">
+
+### Algoritmo realimentación - Feed Back q=1
+
+<img alt="Algoritmo realimentación - Feed Back q=1" src="https://i.ibb.co/GcYwHfp/Feed-Back-Q1.png" width="850">
+
+### Algoritmo realimentación - Feed Back q=2^i
+
+<img alt="Algoritmo realimentación - Feed Back q=2^i" src="https://i.ibb.co/JQSdy3t/Feed-Back-Q-2i.png" width="850">
 
 ### Bibliografia
 
