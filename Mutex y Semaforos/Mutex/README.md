@@ -3,7 +3,7 @@
 ### Definición
 *Mutex sólo le permite a un Hilo el acceso al/los recursos, mientras que un semáforo general puede permitirle el acceso a cualquier cantidad de hilos simultaneamente.*
 
-### Cabecera
+### Prototipos
 
 ```c++
 int pthread_mutex_init(pthread_mutex_t *restrict mutex, const pthread_mutexattr_t *restrict attr);
