@@ -1,11 +1,17 @@
 # Mutex en C
 
+### Definición
+*Mutex sólo le permite a un Hilo el acceso al/los recursos, mientras que un semáforo general puede permitirle el acceso a cualquier cantidad de hilos simultaneamente.*
+
+### Cabecera
+
 ```c++
 int pthread_mutex_init(pthread_mutex_t *restrict mutex, const pthread_mutexattr_t *restrict attr);
 int pthread_mutex_destroy(pthread_mutex_t *mutex);
 int pthread_mutex_lock(pthread_mutex_t *mutex);
 int pthread_mutex_unlock(pthread_mutex_t *mutex);
 ```
+### Codigo
 
 ```c++
 #include <stdio.h>
