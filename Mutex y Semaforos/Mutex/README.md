@@ -14,6 +14,8 @@ int pthread_mutex_unlock(pthread_mutex_t *mutex);
 ### Codigo
 
 ```c++
+// main.c
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -123,4 +125,20 @@ int main(void) {
 // - - - - - - - - 
 // - - - - - - 
 // - - 
+```
+
+### Makefile
+
+```makefile
+
+app: clean exe.o
+
+exe.o: main.o
+	gcc main.o -o exe.o -pthread && ./exe.o
+
+main.o:
+	gcc -c main.c -o main.o -pthread
+
+clean:
+	rm -f *.o
 ```
