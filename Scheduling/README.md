@@ -1,4 +1,4 @@
-# Scheduling en Sistemas Operativos
+# Scheduling (Planificador) en Sistemas Operativos
 
 ### Tabla de Procesos
 <img alt="Tabla de Procesos" src="https://i.ibb.co/NjHyr60/Scheduling-Table.png" width="500">
@@ -37,3 +37,7 @@
 ### Bibliografia
 
 [[1] - **Tomado de:** Operating Systems Internals and design principle. William Stallings. Pren-tice Hall. 2012](https://www.amazon.com/Operating-Systems-Internals-Design-Principles/dp/013230998X/ref=sr_1_3?qid=1560725057&refinements=p_lbr_one_browse-bin%3AWilliam+Stallings&s=books&sr=1-3)
+
+[[2] Types of Operating Systems By Study Tonight](https://www.studytonight.com/operating-system/types-of-os)
+
+[[3] Planificación de procesos de la CPU By Juan V. Carrillo (jvprofe)](https://www.youtube.com/watch?v=jxGnKR3JoOw)

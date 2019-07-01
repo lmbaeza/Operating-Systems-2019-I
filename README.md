@@ -77,3 +77,8 @@
 
 25 directories, 32 files
 ```
+
+### Bibliografia
+[[1] Planificación de procesos de la CPU By Juan V. Carrillo (jvprofe)](https://www.youtube.com/watch?v=jxGnKR3JoOw)
+
+[[2] Gestión de memoria: asignación By Juan V. Carrillo (jvprofe)](https://www.youtube.com/watch?v=hMhPTWUJX_M)
