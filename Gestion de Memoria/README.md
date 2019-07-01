@@ -1,5 +1,10 @@
 # Unidad de Gestion de Memoria (MMU)
 
+**Nota:**
+
+* **Fragmentación Interna:** En esta fragmentación otros procesos no pueden utilizar los huecos.
+* **Fragmentación Externa:** En esta fragmentación si es posible utilizar los huecos.
+
 ### Fragmentación Interna Vs Externa
 Cada vez que se carga o se elimina un proceso del bloque de memoria física, se crea un pequeño agujero en el espacio de memoria que se denomina fragmento. Debido a la fragmentación, el sistema falla al asignar el espacio de memoria contiguo a un proceso aunque tenga la cantidad de memoria solicitada, pero de una manera no contigua. La fragmentación se clasifica en dos categorías: fragmentación interna y externa.
 
