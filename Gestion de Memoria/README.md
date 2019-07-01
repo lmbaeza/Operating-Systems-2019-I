@@ -6,9 +6,14 @@ Cada vez que se carga o se elimina un proceso del bloque de memoria física, se 
 ### Fragmentación Interna
 La fragmentación interna se produce cuando la memoria se divide en bloques de tamaño fijo. Siempre que una solicitud de proceso para la memoria, el bloque de tamaño fijo se asigna al proceso. En caso de que la memoria asignada al proceso sea algo mayor que la memoria solicitada, entonces la diferencia entre la memoria asignada y la solicitada es la fragmentación interna .
 
-
-
 <img alt="Fragmentación Interna" src="https://i.ibb.co/48TGnCT/Fragmentaci-n-Interna-OS.png" width="850">
+
+
+### Fragmentación Externa
+La fragmentación externa se produce cuando hay una cantidad suficiente de espacio en la memoria para satisfacer la solicitud de memoria de un proceso. Pero la solicitud de memoria del proceso no se puede satisfacer, ya que la memoria disponible no es contigua. Si aplica la estrategia de asignación de memoria de primer ajuste o de mejor ajuste, causará una fragmentación externa.
+
+
+<img alt="Fragmentación Externa" src="https://i.ibb.co/D1dVpPS/Fragmentaci-n-Externa.png" width="850">
 
 ### Bibliografia
 
