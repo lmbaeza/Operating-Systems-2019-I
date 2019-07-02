@@ -20,6 +20,13 @@ La fragmentación externa se produce cuando hay una cantidad suficiente de espac
 
 <img alt="Fragmentación Externa" src="https://i.ibb.co/D1dVpPS/Fragmentaci-n-Externa.png" width="850">
 
+### Algoritmos de Reemplazo de Memoria
+
+* Algoritmo Optimo
+* Algoritmo FIFO
+* Algoritmo del Reloj
+* Algoritmo LRU
+
 ### Retención de Memoria
 
 ```c++
