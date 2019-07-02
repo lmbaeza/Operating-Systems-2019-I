@@ -20,6 +20,22 @@ La fragmentación externa se produce cuando hay una cantidad suficiente de espac
 
 <img alt="Fragmentación Externa" src="https://i.ibb.co/D1dVpPS/Fragmentaci-n-Externa.png" width="850">
 
+### Retención de Memoria
+
+```c++
+#include <sys/mman.h>
+
+// mlock();
+int mlock(const void *addr, size_t len);
+int munlock(const void *addr, size_t len);
+
+int mlockall(int flags);
+int munlockall(void);
+```
+
+`mlock();` Permite que una referencia de memoria nunca sea expulsada a **swap**.
+
+
 ### Bibliografia
 
 [[1] Difference Between Internal and External fragmentation By Tech Differences](https://techdifferences.com/difference-between-internal-and-external-fragmentation.html)

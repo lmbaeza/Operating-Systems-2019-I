@@ -10,8 +10,6 @@ En computación, la memoria virtual es una técnica de administración de memori
 
 * Al delegar en el kernel la carga de administrar la jerarquía de memoria (eliminando la necesidad de que el programa maneje las superposiciones explícitamente).
 
-* 
-
 ### Bibliografia
 
 [[1] Virtual Memory By Wikipedia](https://en.wikipedia.org/wiki/Virtual_memory)
