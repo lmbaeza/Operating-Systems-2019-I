@@ -1,6 +1,6 @@
 # Practica Malloc Grande
 
-Cuando se hace un un `malloc(...)` muy grande y en general el sistema operativo no reserva toda la memoria requerida en el `malloc`, sino que a medida que se vaya utilizando la memoria el sistema operativo se la va asignando.
+Cuando se hace un `malloc(...)` muy grande y en general, el sistema operativo no reserva toda la memoria requerida en el `malloc`, sino que a medida que se vaya utilizando la memoria el sistema operativo se la va asignando.
 
 ```c++
 #include <stdio.h>
