@@ -41,3 +41,6 @@
 [[2] Types of Operating Systems By Study Tonight](https://www.studytonight.com/operating-system/types-of-os)
 
 [[3] Planificación de procesos de la CPU By Juan V. Carrillo (jvprofe)](https://www.youtube.com/watch?v=jxGnKR3JoOw)
+
+[[4] Uniprocessor Scheduling 3: Feedback By Jacob Schrum
+](https://www.youtube.com/watch?v=1fFgy11kjag)
