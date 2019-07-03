@@ -26,6 +26,12 @@
 
 <img alt="Algoritmo 'primero el de mayor tasa de respuesta' - Highest Response Ratio Next (HRRN)" src="https://i.ibb.co/q0gy01F/Highest-Response-Ratio-Next-HRRN.png" width="850">
 
+## Multi-Level FeedBack Queue (MLFQ)
+
+* **Regla 1:** Si,  ![Regla 1](http://latex.codecogs.com/gif.latex?prioridad%5Cleft%28A%5Cright%29%5C%3A%3E%5C%3Aprioridad%5Cleft%28B%5Cright%29); Entonces ![A](http://latex.codecogs.com/gif.latex?A) Se ejecuta.
+
+* **Regla 2:** Si, ![Regla 2](http://latex.codecogs.com/gif.latex?prioridad%5Cleft%28A%5Cright%29%5C%3A%3D%5C%3Aprioridad%5Cleft%28B%5Cright%29%3B) Entonces ![RR](http://latex.codecogs.com/gif.latex?RR%5C%3Apara%5C%3AA%5C%3Ay%5C%3AB) Donde ![RR](http://latex.codecogs.com/gif.latex?RR%5C%3A%3D%5C%3ARound%5C%3ARobin)
+
 ### Algoritmo realimentación - Feed Back q=1
 
 <img alt="Algoritmo realimentación - Feed Back q=1" src="https://i.ibb.co/GcYwHfp/Feed-Back-Q1.png" width="850">
